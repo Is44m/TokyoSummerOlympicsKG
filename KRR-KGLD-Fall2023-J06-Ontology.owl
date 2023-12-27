@@ -1,0 +1,516 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://olympicslinked.org/"
+     xml:base="http://olympicslinked.org/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:dbo="http://dbpedia.org/ontology/"
+     xmlns:dbp="http://dbpedia.org/property/"
+     xmlns:dbr="http://dbpedia.org/resource/"
+     xmlns:oly="http://olympicslinked.org/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:schema="http://schema.org/"
+     xmlns:olympicslinked="http://olympicslinked.org//">
+    <owl:Ontology rdf:about="http://olympicslinked.org/"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#minInclusive -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2001/XMLSchema#minInclusive"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/gender -->
+
+    <owl:AnnotationProperty rdf:about="http://xmlns.com/foaf/0.1/gender"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/name -->
+
+    <owl:AnnotationProperty rdf:about="http://xmlns.com/foaf/0.1/name"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://olympicslinked.org/awardedMedal -->
+
+    <owl:ObjectProperty rdf:about="http://olympicslinked.org/awardedMedal">
+        <owl:equivalentProperty>
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="http://olympicslinked.org/isMedalOf"/>
+            </rdf:Description>
+        </owl:equivalentProperty>
+        <rdfs:domain rdf:resource="http://olympicslinked.org/Athlete"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://olympicslinked.org/BronzeMedal"/>
+                    <rdf:Description rdf:about="http://olympicslinked.org/GoldMedal"/>
+                    <rdf:Description rdf:about="http://olympicslinked.org/SilverMedal"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://olympicslinked.org/coachedBy -->
+
+    <owl:ObjectProperty rdf:about="http://olympicslinked.org/coachedBy">
+        <owl:equivalentProperty>
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="http://olympicslinked.org/coaches"/>
+            </rdf:Description>
+        </owl:equivalentProperty>
+        <rdfs:domain rdf:resource="http://olympicslinked.org/Discipline"/>
+        <rdfs:range rdf:resource="http://olympicslinked.org/Coach"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://olympicslinked.org/coaches -->
+
+    <owl:ObjectProperty rdf:about="http://olympicslinked.org/coaches">
+        <rdfs:domain rdf:resource="http://olympicslinked.org/Coach"/>
+        <rdfs:range rdf:resource="http://olympicslinked.org/Discipline"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://olympicslinked.org/competesIn -->
+
+    <owl:ObjectProperty rdf:about="http://olympicslinked.org/competesIn">
+        <owl:equivalentProperty>
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="http://olympicslinked.org/hasParticipant"/>
+            </rdf:Description>
+        </owl:equivalentProperty>
+        <rdfs:domain rdf:resource="http://olympicslinked.org/Athlete"/>
+        <rdfs:range rdf:resource="http://olympicslinked.org/Event"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://olympicslinked.org/hasEvent -->
+
+    <owl:ObjectProperty rdf:about="http://olympicslinked.org/hasEvent">
+        <owl:equivalentProperty>
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="http://olympicslinked.org/partOfDiscipline"/>
+            </rdf:Description>
+        </owl:equivalentProperty>
+        <rdfs:domain rdf:resource="http://olympicslinked.org/Discipline"/>
+        <rdfs:range rdf:resource="http://olympicslinked.org/Event"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://olympicslinked.org/hasMember -->
+
+    <owl:ObjectProperty rdf:about="http://olympicslinked.org/hasMember">
+        <owl:equivalentProperty>
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="http://olympicslinked.org/partOfTeam"/>
+            </rdf:Description>
+        </owl:equivalentProperty>
+        <rdfs:domain rdf:resource="http://olympicslinked.org/Country"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://olympicslinked.org/hasOfficial -->
+
+    <owl:ObjectProperty rdf:about="http://olympicslinked.org/hasOfficial">
+        <owl:equivalentProperty>
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="http://olympicslinked.org/officialOf"/>
+            </rdf:Description>
+        </owl:equivalentProperty>
+        <rdfs:domain rdf:resource="http://olympicslinked.org/Discipline"/>
+        <rdfs:range rdf:resource="http://olympicslinked.org/TechnicalOfficial"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://olympicslinked.org/hasParticipant -->
+
+    <owl:ObjectProperty rdf:about="http://olympicslinked.org/hasParticipant">
+        <rdfs:domain rdf:resource="http://olympicslinked.org/Event"/>
+        <rdfs:range rdf:resource="http://olympicslinked.org/Athlete"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://olympicslinked.org/isMedalOf -->
+
+    <owl:ObjectProperty rdf:about="http://olympicslinked.org/isMedalOf">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://olympicslinked.org/BronzeMedal"/>
+                    <rdf:Description rdf:about="http://olympicslinked.org/GoldMedal"/>
+                    <rdf:Description rdf:about="http://olympicslinked.org/SilverMedal"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://olympicslinked.org/Athlete"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://olympicslinked.org/medalOfEvent -->
+
+    <owl:ObjectProperty rdf:about="http://olympicslinked.org/medalOfEvent">
+        <rdfs:range rdf:resource="http://olympicslinked.org/Event"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://olympicslinked.org/officialOf -->
+
+    <owl:ObjectProperty rdf:about="http://olympicslinked.org/officialOf">
+        <rdfs:domain rdf:resource="http://olympicslinked.org/TechnicalOfficial"/>
+        <rdfs:range rdf:resource="http://olympicslinked.org/Discipline"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://olympicslinked.org/partOfDiscipline -->
+
+    <owl:ObjectProperty rdf:about="http://olympicslinked.org/partOfDiscipline">
+        <rdfs:domain rdf:resource="http://olympicslinked.org/Event"/>
+        <rdfs:range rdf:resource="http://olympicslinked.org/Discipline"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://olympicslinked.org/partOfTeam -->
+
+    <owl:ObjectProperty rdf:about="http://olympicslinked.org/partOfTeam">
+        <rdfs:range rdf:resource="http://olympicslinked.org/Country"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://olympicslinked.org/hasAge -->
+
+    <owl:DatatypeProperty rdf:about="http://olympicslinked.org/hasAge">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://olympicslinked.org/hasDiscipline -->
+
+    <owl:DatatypeProperty rdf:about="http://olympicslinked.org/hasDiscipline">
+        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://olympicslinked.org/hasNationality -->
+
+    <owl:DatatypeProperty rdf:about="http://olympicslinked.org/hasNationality">
+        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://olympicslinked.org/hasRank -->
+
+    <owl:DatatypeProperty rdf:about="http://olympicslinked.org/hasRank">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/gender -->
+
+    <owl:DatatypeProperty rdf:about="http://xmlns.com/foaf/0.1/gender">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/name -->
+
+    <owl:DatatypeProperty rdf:about="http://xmlns.com/foaf/0.1/name">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://olympicslinked.org/Athlete -->
+
+    <owl:Class rdf:about="http://olympicslinked.org/Athlete">
+        <owl:disjointWith rdf:resource="http://olympicslinked.org/Coach"/>
+        <owl:disjointWith rdf:resource="http://olympicslinked.org/Country"/>
+        <owl:disjointWith rdf:resource="http://olympicslinked.org/Discipline"/>
+        <owl:disjointWith rdf:resource="http://olympicslinked.org/Event"/>
+        <owl:disjointWith rdf:resource="http://olympicslinked.org/TechnicalOfficial"/>
+    </owl:Class>
+    
+
+
+    <!-- http://olympicslinked.org/AthleteWithAtleastOneMedal -->
+
+    <owl:Class rdf:about="http://olympicslinked.org/AthleteWithAtleastOneMedal">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://olympicslinked.org/Athlete"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://olympicslinked.org/awardedMedal"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://olympicslinked.org/BronzeMedal"/>
+                                    <rdf:Description rdf:about="http://olympicslinked.org/GoldMedal"/>
+                                    <rdf:Description rdf:about="http://olympicslinked.org/SilverMedal"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://olympicslinked.org/BronzeMedal -->
+
+    <owl:Class rdf:about="http://olympicslinked.org/BronzeMedal">
+        <owl:disjointWith rdf:resource="http://olympicslinked.org/GoldMedal"/>
+        <owl:disjointWith rdf:resource="http://olympicslinked.org/SilverMedal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://olympicslinked.org/Coach -->
+
+    <owl:Class rdf:about="http://olympicslinked.org/Coach">
+        <owl:disjointWith rdf:resource="http://olympicslinked.org/Country"/>
+        <owl:disjointWith rdf:resource="http://olympicslinked.org/Discipline"/>
+        <owl:disjointWith rdf:resource="http://olympicslinked.org/Event"/>
+        <owl:disjointWith rdf:resource="http://olympicslinked.org/TechnicalOfficial"/>
+    </owl:Class>
+    
+
+
+    <!-- http://olympicslinked.org/CompetingAthlete -->
+
+    <owl:Class rdf:about="http://olympicslinked.org/CompetingAthlete">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://olympicslinked.org/Athlete"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://olympicslinked.org/competesIn"/>
+                        <owl:someValuesFrom rdf:resource="http://olympicslinked.org/Event"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://olympicslinked.org/Country -->
+
+    <owl:Class rdf:about="http://olympicslinked.org/Country">
+        <owl:disjointWith rdf:resource="http://olympicslinked.org/Discipline"/>
+        <owl:disjointWith rdf:resource="http://olympicslinked.org/Event"/>
+        <owl:disjointWith rdf:resource="http://olympicslinked.org/TechnicalOfficial"/>
+    </owl:Class>
+    
+
+
+    <!-- http://olympicslinked.org/Discipline -->
+
+    <owl:Class rdf:about="http://olympicslinked.org/Discipline">
+        <owl:disjointWith rdf:resource="http://olympicslinked.org/Event"/>
+    </owl:Class>
+    
+
+
+    <!-- http://olympicslinked.org/Event -->
+
+    <owl:Class rdf:about="http://olympicslinked.org/Event"/>
+    
+
+
+    <!-- http://olympicslinked.org/GoldMedal -->
+
+    <owl:Class rdf:about="http://olympicslinked.org/GoldMedal">
+        <owl:disjointWith rdf:resource="http://olympicslinked.org/SilverMedal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://olympicslinked.org/HighPerformanceTeam -->
+
+    <owl:Class rdf:about="http://olympicslinked.org/HighPerformanceTeam">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://olympicslinked.org/hasRank"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</xsd:minExclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://olympicslinked.org/Medal -->
+
+    <owl:Class rdf:about="http://olympicslinked.org/Medal">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://olympicslinked.org/BronzeMedal"/>
+                    <rdf:Description rdf:about="http://olympicslinked.org/GoldMedal"/>
+                    <rdf:Description rdf:about="http://olympicslinked.org/SilverMedal"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://olympicslinked.org/NonCompetingAthlete -->
+
+    <owl:Class rdf:about="http://olympicslinked.org/NonCompetingAthlete">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://olympicslinked.org/Athlete"/>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="http://olympicslinked.org/CompetingAthlete"/>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://olympicslinked.org/SilverMedal -->
+
+    <owl:Class rdf:about="http://olympicslinked.org/SilverMedal"/>
+    
+
+
+    <!-- http://olympicslinked.org/TechnicalOfficial -->
+
+    <owl:Class rdf:about="http://olympicslinked.org/TechnicalOfficial"/>
+    
+
+
+    <!-- http://olympicslinked.org/VeteranAthlete -->
+
+    <owl:Class rdf:about="http://olympicslinked.org/VeteranAthlete">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://olympicslinked.org/Athlete"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://olympicslinked.org/hasAge"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</xsd:minInclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://olympicslinked.org/test1 -->
+
+    <owl:NamedIndividual rdf:about="http://olympicslinked.org/test1">
+        <rdf:type rdf:resource="http://olympicslinked.org/SilverMedal"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi -->
+
